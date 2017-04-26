@@ -11,23 +11,23 @@ package Algorithms;
  */
 public class BinTree {
     //inicio del arbol
-    Nodo raiz;
+    Nodo m_raiz;
     
     //agregar un nodo
     public void agrega_nodo(int _k, String _nombre){
         Nodo n_nodo = new Nodo(_k, _nombre);
         
         //caso del primer nodo del arbol
-        if(raiz == null)    raiz = n_nodo; //si no se ha inicializado la raiz 
+        if(m_raiz == null)    m_raiz = n_nodo; //si no se ha inicializado la raiz 
         else {
-            Nodo focus_n = raiz;
+            Nodo focus_n = m_raiz;
             Nodo padre;
             
             //ciclo que recorre el arbol
             while(true){
                 padre = focus_n;
                 
-                if(_k < focus_n.key) {
+                if(_k < focus_n.m_key) {
                     focus_n = focus_n.hijo_izq;
                     if(focus_n == null){
                         padre.hijo_izq = n_nodo;
@@ -48,23 +48,23 @@ public class BinTree {
     
     //busqueda binaria
     public Nodo bin_search(int _k){
-        Nodo focus_n = raiz;   
-        while(focus_n.key != _k){
-            focus_n = (_k > focus_n.key) ?  focus_n.hijo_der :  focus_n.hijo_izq;
-            if(focus_n == null || focus_n.key == _k) return (focus_n);  //unico punto de salida
+        Nodo focus_n = m_raiz;   
+        while(focus_n.m_key != _k){
+            focus_n = (_k > focus_n.m_key) ?  focus_n.hijo_der :  focus_n.hijo_izq;
+            if(focus_n == null || focus_n.m_key == _k) return (focus_n);  //unico punto de salida
        }     
        return (focus_n); //innecesario pero requerido por el compilador *revisar
     }
           
     //elimina un elemento del arbol
     public void remueve(int _k){
-        Nodo focus = raiz;
-        Nodo padre = raiz;
+        Nodo focus = m_raiz;
+        Nodo padre = m_raiz;
         boolean es_hijo_izq = false;
         
-        while(focus.key != _k){
+        while(focus.m_key != _k){
             padre = focus;
-            if(_k < focus.key){
+            if(_k < focus.m_key){
                 es_hijo_izq = true;
                 focus = focus.hijo_izq;
             } else {
@@ -76,22 +76,22 @@ public class BinTree {
         
         //no tiene hijos
         if(!focus.tiene_hijos()){ 
-            if(focus == raiz)    raiz = null;
+            if(focus == m_raiz)    m_raiz = null;
             else if(es_hijo_izq) padre.hijo_izq = null;
             else                 padre.hijo_der = null;
         } //no tiene hijo derecho 
         else if(focus.hijo_der == null){ 
-            if(focus == raiz)    raiz = focus.hijo_izq;
+            if(focus == m_raiz)  m_raiz = focus.hijo_izq;
             else if(es_hijo_izq) padre.hijo_izq = focus.hijo_izq;
             else                 padre.hijo_der = focus.hijo_izq;
         } //no tiene hijo izquierdo 
         else if(focus.hijo_izq == null){ 
-            if(focus == raiz)    raiz = focus.hijo_der;
+            if(focus == m_raiz)  m_raiz = focus.hijo_der;
             else if(es_hijo_izq) padre.hijo_izq = focus.hijo_der;
             else                 padre.hijo_der = focus.hijo_der;
         } else {
             Nodo reemplazo = reemplaza_n(focus);
-            if(focus == raiz) raiz = reemplazo;
+            if(focus == m_raiz)  m_raiz = reemplazo;
             else if(es_hijo_izq) padre.hijo_izq = reemplazo;
             else                 padre.hijo_der = reemplazo;
             reemplazo.hijo_izq = focus.hijo_izq;

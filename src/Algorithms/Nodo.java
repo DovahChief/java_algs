@@ -11,8 +11,8 @@ package Algorithms;
  */
 public class Nodo {
     //identificadores del nodo
-    int key;
-    String nombre;
+    int m_key;
+    String m_nombre;
     
     //cada nodo contiene a sus hijos (en c++ son apuntadores,,,
     // ... revisar bien aqui como esta generado
@@ -22,14 +22,14 @@ public class Nodo {
     
     //ctor 
     Nodo(int _key, String _nombre){
-        this.key = _key;
-        this.nombre = _nombre;
+        this.m_key = _key;
+        this.m_nombre = _nombre;
     }
     
     //a cadena imprime info del nodo
     @Override
     public String toString(){
-        return (nombre + " tiene llave " + key) ; 
+        return (m_nombre + " tiene llave " + m_key) ; 
     }
     
     public boolean tiene_hijos(){
