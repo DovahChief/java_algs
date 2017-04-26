@@ -37,6 +37,45 @@ public class DLinkList {
         m_ultimo_link = nuevo;
     }
     
+    //inserta despues de una llave
+    public void ins_despues_de(String _dat, int _num, int _llave){
+        Dlink nuevo = new Dlink(_dat, _num);
+        Dlink actual =  m_primer_link;
+        
+        while(actual.m_numero != _llave){
+            actual = actual.siguiente;
+            if(actual == null)  return; 
+        }
+        
+        if(actual == m_ultimo_link){
+            nuevo.siguiente = null;
+            m_ultimo_link = nuevo;
+        }else{
+            nuevo.siguiente = actual.siguiente;
+            actual.siguiente.anterior = nuevo;
+        }
+        nuevo.anterior = actual;
+        actual.siguiente = nuevo; 
+     }
+    
+    //inserta en orden
+    public void ins_en_orden(String _dat, int _num){
+        Dlink nuevo = new Dlink(_dat, _num);
+        Dlink previo = null;
+        Dlink actual = m_primer_link;
+        
+        while((actual != null) && (actual.m_numero < _num)){
+            previo = actual;
+            actual = actual.siguiente;
+        }
+        
+        if(previo == null)  m_primer_link = nuevo;
+        else                previo.siguiente = nuevo;
+        
+        nuevo.siguiente =  actual; 
+            
+    }
+    
     //revisa si la lista esta vacia
     public boolean es_vacio(){ return (m_primer_link == null);}
     
