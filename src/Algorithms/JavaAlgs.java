@@ -18,8 +18,11 @@ public class JavaAlgs {
 
         //creando lista
         LinkedList lista = new LinkedList();
+        //creando lista doblemente ligada
+        DLinkList lista_2 = new DLinkList();
         //creando arbol ver doc en BinTree.java
         BinTree arbol_bin = new BinTree();
+        
         
         
         //pruebas de lista ligada
@@ -28,8 +31,13 @@ public class JavaAlgs {
         lista.insert("C++ Primer Plus", 10);
         
         lista.recorre();
-        lista.find("Java How to ");
+        lista.find("C++ Primer Plus");
         //fin de pruebas de lista ligada
+        
+        
+        //pruebas de lista doblemente ligada
+        
+        //fin de pruebas de lista doblemente ligada
         
         //pruebas de arbol binario
         arbol_bin.agrega_nodo(117, "Master Chief");
@@ -41,7 +49,7 @@ public class JavaAlgs {
         arbol_bin.agrega_nodo(300, "Noble Six");
         
         System.out.println("---------------------------------");
-        arbol_bin.rec_inorden(arbol_bin.raiz);
+        arbol_bin.rec_inorden(arbol_bin.m_raiz);
         System.out.println("---------------------------------");
         
         System.out.println("---------------------------------");
