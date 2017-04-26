@@ -16,8 +16,20 @@ public class JavaAlgs {
      */
     public static void main(String[] args) {
 
+        //creando lista
+        LinkedList lista = new LinkedList();
         //creando arbol ver doc en BinTree.java
         BinTree arbol_bin = new BinTree();
+        
+        
+        //pruebas de lista ligada
+        lista.insert("cien anios de soledad", 0);
+        lista.insert("Java How to Program", 2);
+        lista.insert("C++ Primer Plus", 10);
+        
+        lista.recorre();
+        lista.find("Java How to ");
+        //fin de pruebas de lista ligada
         
         //pruebas de arbol binario
         arbol_bin.agrega_nodo(117, "Master Chief");
@@ -46,6 +58,9 @@ public class JavaAlgs {
         System.out.println("Busqueda binaria (30): "+arbol_bin.bin_search(30));
         System.out.println("---------------------------------");
         //fin pruebas de arbol
+        
+        
+        
     }
     
 }
