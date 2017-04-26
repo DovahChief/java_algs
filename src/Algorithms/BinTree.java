@@ -21,7 +21,7 @@ public class BinTree {
         if(m_raiz == null)    m_raiz = n_nodo; //si no se ha inicializado la raiz 
         else {
             Nodo focus_n = m_raiz;
-            Nodo padre;
+            Nodo padre; 
             
             //ciclo que recorre el arbol
             while(true){
@@ -99,7 +99,7 @@ public class BinTree {
     }
     
     //solo para ser usado en la funcion de remueve
-    private Nodo reemplaza_n(Nodo _cambiado) {
+    private Nodo reemplaza_n(Nodo _cambiado)    {
             Nodo replacementParent = _cambiado;
             Nodo replacement = _cambiado;
             Nodo focusNode = _cambiado.hijo_der;
@@ -111,8 +111,8 @@ public class BinTree {
 
             }
             if (replacement != _cambiado.hijo_der) {
-                    replacementParent.hijo_izq = replacement.hijo_der;
-                    replacement.hijo_der = _cambiado.hijo_der;
+                replacementParent.hijo_izq = replacement.hijo_der;
+                replacement.hijo_der = _cambiado.hijo_der;
             }
 
             return replacement;
