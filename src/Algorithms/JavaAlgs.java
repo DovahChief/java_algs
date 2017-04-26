@@ -36,6 +36,12 @@ public class JavaAlgs {
         
         
         //pruebas de lista doblemente ligada
+        lista_2.ins_primera_pos("Logan", 8);
+        lista_2.ins_primera_pos("Rapidos y Furiosos", 10);
+        lista_2.ins_primera_pos("DeadPool", 81);
+        lista_2.ins_ultima_pos("Red Social", 17);
+        
+        
         
         //fin de pruebas de lista doblemente ligada
         
